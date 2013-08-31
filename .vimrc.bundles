@@ -1,0 +1,169 @@
+" Modeline and Notes {
+" vim: set sw=4 ts=4 sts=4 et tw=80 foldmarker={,} foldlevel=0 foldmethod=marker:
+" }
+
+" Bundles {
+
+" Deps {
+    NeoBundle 'MarcWeber/vim-addon-mw-utils'
+    NeoBundle 'tomtom/tlib_vim'
+    if executable('ack-grep')
+        let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+        NeoBundle 'mileszs/ack.vim'
+    elseif executable('ack')
+        NeoBundle 'mileszs/ack.vim'
+    elseif executable('ag')
+        NeoBundle 'mileszs/ack.vim'
+        let g:ackprg = 'ag --nogroup --nocolor --column'
+    endif
+" }
+
+if !exists('g:bundle_groups')
+    let g:bundle_groups=['general', 'intelisence', 'programming', 'ruby', 'python', 'javascript', 'html', 'misc']
+endif
+
+" General {
+    if count(g:bundle_groups, 'general')
+        NeoBundle 'mbbill/fencview'
+        NeoBundle 'scrooloose/nerdtree'
+        NeoBundle 'kien/ctrlp.vim'
+        NeoBundle 'Lokaltog/vim-powerline'
+        " NeoBundle 'wikitopian/hardmode'
+        NeoBundle 'tomasr/molokai'
+        NeoBundle 'sickill/vim-monokai'
+        " NeoBundle 'bling/vim-bufferline'
+    endif
+" }
+
+" Intelisence {
+    if count(g:bundle_groups, 'intelisence')
+        NeoBundle 'Valloric/YouCompleteMe'
+    endif
+" }
+
+" Programming {
+    if count(g:bundle_groups, 'programming')
+        NeoBundle 'Raimondi/delimitMate'
+        NeoBundle 'scrooloose/nerdcommenter'
+        NeoBundle 'godlygeek/tabular'
+        NeoBundle 'SirVer/ultisnips'
+        NeoBundle 'scrooloose/syntastic'
+        NeoBundle 'tpope/vim-fugitive'
+        NeoBundle 'Lokaltog/vim-easymotion'
+        NeoBundle 'akiomik/git-gutter-vim'
+        NeoBundle 'jpalardy/vim-slime'
+    endif
+" }
+
+" Javascript {
+    if count(g:bundle_groups, 'javascript')
+    endif
+" }
+
+" Html {
+    if count(g:bundle_groups, 'html')
+    endif
+" }
+
+" ruby {
+    if count(g:bundle_groups, 'ruby')
+        NeoBundle 'tpope/vim-rails'
+        NeoBundle 'quentindecock/vim-cucumber-align-pipes'
+        let g:rubycomplete_buffer_loading = 1
+        "let g:rubycomplete_classes_in_global = 1
+        "let g:rubycomplete_rails = 1
+    endif
+" }
+
+" Misc {
+    if count(g:bundle_groups, 'misc')
+        NeoBundle 'jceb/vim-orgmode'
+    endif
+" }
+
+" }
+
+" Plugins {
+
+let mapleader = ','
+
+" NerdCommenter {
+    let NERDSpaceDelims = 1
+" }
+
+" NerdTree {
+    map <C-e> : NERDTreeToggle<CR> : NERDTreeMirror<CR>
+    let NERDTreeShowBookmarks                = 0
+    let NERDChristmasTree                    = 1
+    let NERDTreeChDirMode                    = 2
+    let NERDTreeQuitOnOpen                   = 1 " close the tree after open
+    let NERDTreeMouseMode                    = 2
+    let NERDTreeShowHidden                   = 0
+    let NERDTreeDirArrows                    = 1
+    let NERDTreeIgnore                       = ['.d$[[dir]]', '.o$[[file]]']
+" }
+
+" Ctrlp {
+    let g:ctrlp_working_path_mode = 'ra'
+    nnoremap <silent> <leader>p :CtrlP<CR>
+    nnoremap <silent> <leader>m :CtrlPMRU<CR>
+    nnoremap <silent> <leader>b :CtrlPBuffer<CR>
+
+    let g:ctrlp_custom_ignore = {
+        \ 'dir'  : '\.git$\|\.hg$\|\.svn$',
+        \ 'file' : '\.exe$\|\.so$\|\.dll$' }
+
+    let g:ctrlp_user_command = {
+        \ 'types': {
+        \ 1: ['.git', 'cd %s && git ls-files'],
+        \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+        \ },
+        \ 'fallback': 'find %s -type f'
+    \ }
+"}
+
+" Tabularize {
+" }
+
+" UltiSnips {
+    let g:UltiSnipsEditSplit="vertical" " normal, horizontal
+    " default key maps
+    let g:UltiSnipsExpandTrigger       ="<tab>"
+    let g:UltiSnipsListSnippets        ="<c-tab>"
+    let g:UltiSnipsJumpForwardTrigger  ="<c-j>"
+    let g:UltiSnipsJumpBackwardTrigger ="<c-k>"
+" }
+
+" YouCompleteMe {
+    " to get complete option list
+    let g:ycm_min_num_of_chars_for_completion = 2
+    let g:ycm_filetypes_to_completely_ignore  = {
+        \ 'notes'    : 1,
+        \ 'markdown' : 1,
+        \ 'text'     : 1,
+    \}
+    let g:ycm_filetype_specific_completion_to_disable = {}
+    let g:ycm_key_list_select_completion              = ['<Enter>', '<Down>']
+    let g:ycm_key_list_previous_completion            = ['<S-Enter>', '<Up>']
+" }
+
+" Fugitive {
+" }
+
+" Hardmode {
+    " autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+    " nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+" }
+
+" Vim Slime {
+    let g:slime_target = "tmux"
+    let g:slime_paste_file = tempname()
+" }
+
+" Vim Powerline {
+    if has('gui_running')
+        let g:Powerline_symbols = 'fancy'
+    endif
+" }
+
+" }
