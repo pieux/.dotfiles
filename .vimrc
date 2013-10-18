@@ -30,10 +30,10 @@
 " }
 
 " 2 moving around, searching and patterns {
-    set whichwrap=b,s,<,>,[,]   " :h whichwrap
     set showmatch
     set incsearch
     set ignorecase 
+    set hlsearch
 
     " restoe cursor location {
         function! RestoreCursor()
@@ -51,37 +51,23 @@
     " }
 
 " 4 displaying text {
-    set scrolljump=5
-    set scrolloff=3
     set nowrap
     set linespace=0
-
-    " set list
-    " set listchars=tab:,.,trail:.,extends:#,nbsp:.   " highlight problematic whitespace
-
     set number
     set relativenumber
-    set numberwidth=4
-
-    augroup BgHighlight
-        autocmd!
-            highlight OverLength ctermbg=darkgrey ctermfg=darkred guibg=#0D4352
-            autocmd WinEnter * set colorcolumn=80
-            autocmd WinLeave * set colorcolumn=0
-    augroup END
 " }
 
 " 5 syntax, highlighting and spelling {
     set t_Co=256
-    set background=light
+    syntax on
+    set cursorline
+    set nospell
+    set background=dark
     if has('gui_running')
         set background=light
     endif
     color molokai
-    syntax on
-    set hlsearch
-    set cursorline
-    set nospell
+    
 " }
 
 " 6 multiple windows {
@@ -103,7 +89,6 @@
 
 " 10 GUI {
     set guifont=Monaco\ for\ Powerline:h15
-    set guioptions=aegimrLtT
 "}
 
 " 11 printing {
@@ -132,13 +117,6 @@
 "}
 
 " 13 selecting text {
-    " clipboard {
-        if has ('x') && has ('gui')
-            set clipboard=unnamedplus
-        elseif has ('gui')
-            set clipboard=unnamed
-        endif
-    " }
 "}
 
 " 14 editing text {
@@ -151,7 +129,7 @@
     set expandtab
     set shiftwidth=4
     set tabstop=4
-    set softtabstop=2   
+    set softtabstop=4
     " strip whitespace {
         function! StripTrailingWhitespace()
             " Preparation: save last search, and cursor position.
@@ -180,7 +158,6 @@
 " 18 mapping {
     nnoremap ; :
     nnoremap j gj
-    nnoremap k gk
     nnoremap Y y$
 
     vnoremap < <gv
@@ -291,14 +268,6 @@
 " }
 
 " 24 language specific {
-    augroup filetypedetect
-        au BufRead,BufNewFile *.rabl setf rabl.ruby
-        au BufRead,BufNewFile *.html setf handlebars.html
-        au BufRead,BufNewFile *_spec.rb setf rspec.ruby
-    augroup END
-
-    au FileType python,snippets,xml setl sw=4 sts=4 et
-    au FileType ruby setl sw=2 sts=2 et
 " }
 
 " 25 multi-byte characters {

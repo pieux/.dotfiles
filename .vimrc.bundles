@@ -28,10 +28,8 @@ endif
         NeoBundle 'scrooloose/nerdtree'
         NeoBundle 'kien/ctrlp.vim'
         NeoBundle 'Lokaltog/vim-powerline'
-        " NeoBundle 'wikitopian/hardmode'
         NeoBundle 'tomasr/molokai'
-        NeoBundle 'sickill/vim-monokai'
-        " NeoBundle 'bling/vim-bufferline'
+        NeoBundle 'tpope/vim-fugitive'
     endif
 " }
 
@@ -47,10 +45,7 @@ endif
         NeoBundle 'scrooloose/nerdcommenter'
         NeoBundle 'godlygeek/tabular'
         NeoBundle 'SirVer/ultisnips'
-        NeoBundle 'scrooloose/syntastic'
-        NeoBundle 'tpope/vim-fugitive'
         NeoBundle 'Lokaltog/vim-easymotion'
-        NeoBundle 'akiomik/git-gutter-vim'
         NeoBundle 'jpalardy/vim-slime'
     endif
 " }
@@ -77,7 +72,6 @@ endif
 
 " Misc {
     if count(g:bundle_groups, 'misc')
-        NeoBundle 'jceb/vim-orgmode'
     endif
 " }
 
@@ -92,23 +86,9 @@ let mapleader = ','
 " }
 
 " NerdTree {
-    map <C-e> : NERDTreeToggle<CR> : NERDTreeMirror<CR>
-    let NERDTreeShowBookmarks                = 0
-    let NERDChristmasTree                    = 1
-    let NERDTreeChDirMode                    = 2
-    let NERDTreeQuitOnOpen                   = 1 " close the tree after open
-    let NERDTreeMouseMode                    = 2
-    let NERDTreeShowHidden                   = 0
-    let NERDTreeDirArrows                    = 1
-    let NERDTreeIgnore                       = ['.d$[[dir]]', '.o$[[file]]']
 " }
 
 " Ctrlp {
-    let g:ctrlp_working_path_mode = 'ra'
-    nnoremap <silent> <leader>p :CtrlP<CR>
-    nnoremap <silent> <leader>m :CtrlPMRU<CR>
-    nnoremap <silent> <leader>b :CtrlPBuffer<CR>
-
     let g:ctrlp_custom_ignore = {
         \ 'dir'  : '\.git$\|\.hg$\|\.svn$',
         \ 'file' : '\.exe$\|\.so$\|\.dll$' }
@@ -145,14 +125,6 @@ let mapleader = ','
     let g:ycm_filetype_specific_completion_to_disable = {}
     let g:ycm_key_list_select_completion              = ['<Enter>', '<Down>']
     let g:ycm_key_list_previous_completion            = ['<S-Enter>', '<Up>']
-" }
-
-" Fugitive {
-" }
-
-" Hardmode {
-    " autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-    " nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 " }
 
 " Vim Slime {
