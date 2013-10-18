@@ -86,6 +86,7 @@ let mapleader = ','
 " }
 
 " NerdTree {
+map <C-e> : NERDTreeToggle<CR> : NERDTreeMirror<CR>
 " }
 
 " Ctrlp {
