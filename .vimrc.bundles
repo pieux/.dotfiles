@@ -30,6 +30,7 @@ endif
         NeoBundle 'Lokaltog/vim-powerline'
         NeoBundle 'tomasr/molokai'
         NeoBundle 'tpope/vim-fugitive'
+        NeoBundle 'chriskempson/tomorrow-theme'
     endif
 " }
 
