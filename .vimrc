@@ -32,7 +32,7 @@
 " 2 moving around, searching and patterns {
     set showmatch
     set incsearch
-    set ignorecase 
+    set ignorecase
     set hlsearch
 
     " restoe cursor location {
@@ -67,7 +67,7 @@
         set background=light
     endif
     color molokai
-    
+
 " }
 
 " 6 multiple windows {
@@ -130,6 +130,7 @@
     set shiftwidth=4
     set tabstop=4
     set softtabstop=4
+
     " strip whitespace {
         function! StripTrailingWhitespace()
             " Preparation: save last search, and cursor position.
@@ -143,7 +144,7 @@
             call cursor(l, c)
         endfunction
     " }
-    autocmd FileType c,cpp,java,javascript,python,ruby,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+    autocmd FileType c,cpp,java,javascript,python,ruby,xml,yml,vim autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 "}
 
 " 16 folding {
@@ -271,10 +272,11 @@
 " }
 
 " 25 multi-byte characters {
+    set encoding=utf-8
     scriptencoding utf-8
 " }
 
 " 26 various {
-    set virtualedit=onemore 
+    set virtualedit=onemore
     set viewoptions=folds,options,cursor,unix,slash " better Unix / Windows compatibility
 " }

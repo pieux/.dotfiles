@@ -27,10 +27,12 @@ endif
         NeoBundle 'mbbill/fencview'
         NeoBundle 'scrooloose/nerdtree'
         NeoBundle 'kien/ctrlp.vim'
-        NeoBundle 'Lokaltog/vim-powerline'
+        " NeoBundle 'Lokaltog/vim-powerline'
+        NeoBundle 'bling/vim-airline'
         NeoBundle 'tomasr/molokai'
         NeoBundle 'tpope/vim-fugitive'
-        NeoBundle 'chriskempson/tomorrow-theme'
+        " NeoBundle 'chriskempson/tomorrow-theme'
+        NeoBundle 'altercation/vim-colors-solarized'
     endif
 " }
 
@@ -134,10 +136,18 @@ map <C-e> : NERDTreeToggle<CR> : NERDTreeMirror<CR>
     let g:slime_paste_file = tempname()
 " }
 
-" Vim Powerline {
-    if has('gui_running')
-        let g:Powerline_symbols = 'fancy'
+" Vim Airline {
+    if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
     endif
+    let g:airline_powerline_fonts = 0
+    let g:airline_left_sep = '⮀'
+    let g:airline_left_alt_sep = '⮁'
+    let g:airline_right_sep = '⮂'
+    let g:airline_right_alt_sep = '⮃'
+    let g:airline_symbols.branch = '⭠'
+    let g:airline_symbols.readonly = '⭤'
+    let g:airline_symbols.linenr = '⭡'
 " }
 
 " }
