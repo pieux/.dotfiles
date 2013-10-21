@@ -27,11 +27,9 @@ endif
         NeoBundle 'mbbill/fencview'
         NeoBundle 'scrooloose/nerdtree'
         NeoBundle 'kien/ctrlp.vim'
-        " NeoBundle 'Lokaltog/vim-powerline'
         NeoBundle 'bling/vim-airline'
         NeoBundle 'tomasr/molokai'
         NeoBundle 'tpope/vim-fugitive'
-        " NeoBundle 'chriskempson/tomorrow-theme'
         NeoBundle 'altercation/vim-colors-solarized'
     endif
 " }

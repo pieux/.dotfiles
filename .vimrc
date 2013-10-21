@@ -46,9 +46,9 @@
     au BufReadPost * call RestoreCursor()
 " }
 
-    " 3 tag {
+" 3 tag {
 
-    " }
+" }
 
 " 4 displaying text {
     set nowrap
