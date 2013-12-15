@@ -48,6 +48,7 @@ endif
         NeoBundle 'SirVer/ultisnips'
         NeoBundle 'Lokaltog/vim-easymotion'
         NeoBundle 'jpalardy/vim-slime'
+        NeoBundle 'majutsushi/tagbar'
     endif
 " }
 
@@ -73,6 +74,7 @@ endif
 
 " Misc {
     if count(g:bundle_groups, 'misc')
+        NeoBundle 'plasticboy/vim-markdown'
     endif
 " }
 
@@ -105,6 +107,20 @@ map <C-e> : NERDTreeToggle<CR> : NERDTreeMirror<CR>
 "}
 
 " Tabularize {
+    nmap <Leader>a& :Tabularize /&<CR>
+    vmap <Leader>a& :Tabularize /&<CR>
+    nmap <Leader>a= :Tabularize /=<CR>
+    vmap <Leader>a= :Tabularize /=<CR>
+    nmap <Leader>a: :Tabularize /:<CR>
+    vmap <Leader>a: :Tabularize /:<CR>
+    nmap <Leader>a:: :Tabularize /:\zs<CR>
+    vmap <Leader>a:: :Tabularize /:\zs<CR>
+    nmap <Leader>a, :Tabularize /,<CR>
+    vmap <Leader>a, :Tabularize /,<CR>
+    nmap <Leader>a,, :Tabularize /,\zs<CR>
+    vmap <Leader>a,, :Tabularize /,\zs<CR>
+    nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+    vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 " }
 
 " UltiSnips {
